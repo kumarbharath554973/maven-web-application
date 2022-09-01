@@ -30,11 +30,11 @@ sh "${mavenHome}/bin/mvn clean sonar:sonar"
 }
 
 stage('UploadArtifcatsIntoArtifactoryRepo'){
-sh "${mavenHome}/bin/mvn clean deploy2"
+sh "${mavenHome}/bin/mvn clean deploy"
 }
 
 stage('DeployAppIntoTomcatServer'){
-sshagent(['dc292b7a-3b39-4630-9fc3-1b806b54412c']) {
+sshagent(['b45a0283-8cc1-4797-b9ab-6e0c49450f64']) {
  sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@172.31.7.80:/opt/apache-tomcat-9.0.65/webapps/"
 }
 }
