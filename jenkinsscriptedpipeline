@@ -31,8 +31,7 @@ catcch (e){
 slackNotifications(currentBuild.result)
 throw e
 }
-finally 
-{
+finally{
 slackNotifications(currentBuild.result)
 }
 
