@@ -24,12 +24,16 @@ stage('DeployAppintoTomcatserver'){
 sshagent(['b45a0283-8cc1-4797-b9ab-6e0c49450f64']) {
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@52.66.111.16:/opt/apache-tomcat-9.0.65/webapps/"
 }
-    
 }
+
+
 }//try block closing
 catcch (e){
 slackNotifications(currentBuild.result)
 throw e
+}
+finally{
+slackNotifications(currentBuild.result)
 }
 
 
