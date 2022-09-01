@@ -31,9 +31,7 @@ catcch (e){
 slackNotifications(currentBuild.result)
 throw e
 }
-finally{
-slackNotifications(currentBuild.result)
-}
+
 
 }//Node closing
 
